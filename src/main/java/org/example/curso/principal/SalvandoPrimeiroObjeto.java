@@ -20,8 +20,6 @@ public class SalvandoPrimeiroObjeto {
         em.getTransaction().commit();
 
         log.info("Cliente Salvo com sucesso");
-
-//        em.close();
     }
 
     private static Cliente criarCliente() {

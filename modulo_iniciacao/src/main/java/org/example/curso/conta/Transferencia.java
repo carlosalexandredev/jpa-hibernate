@@ -76,7 +76,6 @@ public class Transferencia {
             transferencia = BigDecimal.ZERO;
             log.info("Saldo insuficiente para realizar a transfêrencia");
         }
-
         exibeExtrato(conta1, conta2, transferencia);
     }
 

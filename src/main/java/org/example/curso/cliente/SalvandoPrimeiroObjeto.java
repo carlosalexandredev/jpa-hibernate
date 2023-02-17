@@ -23,7 +23,6 @@ public class SalvandoPrimeiroObjeto {
     }
 
     private static Cliente criarCliente() {
-
         return new Cliente(null, "Carlos", 22, "M", "Desenvolvedor Java");
     }
 }

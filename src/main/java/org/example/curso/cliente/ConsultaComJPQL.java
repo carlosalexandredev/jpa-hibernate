@@ -17,14 +17,15 @@ public class ConsultaComJPQL {
         EntityManager em = emf.createEntityManager();
 
         List<Cliente> clientesMulheres = consultaMulheres(em);
+        List<Cliente> clienteMenoresDeIdade = consultaMenoresDeIdade(em);
+        List<Cliente> clientesInicalC = consultaClienteInicialC(em);
+
         System.out.println("Busca mulheres:");
         clientesMulheres.stream().map(Cliente::toString).forEach(System.out::println);
 
-        List<Cliente> clienteMenoresDeIdade = consultaMenoresDeIdade(em);
         System.out.println("Busca menores de idade:");
         clienteMenoresDeIdade.stream().map(Cliente::toString).forEach(System.out::println);
 
-        List<Cliente> clientesInicalC = consultaClienteInicialC(em);
         System.out.println("Busca clientes com inicial [C]:");
         clientesInicalC.stream().map(Cliente::toString).forEach(System.out::println);
     }

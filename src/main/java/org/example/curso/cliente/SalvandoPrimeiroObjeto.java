@@ -1,4 +1,4 @@
-package org.example.curso.principal;
+package org.example.curso.cliente;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.curso.modelo.Cliente;

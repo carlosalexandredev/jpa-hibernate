@@ -9,8 +9,8 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

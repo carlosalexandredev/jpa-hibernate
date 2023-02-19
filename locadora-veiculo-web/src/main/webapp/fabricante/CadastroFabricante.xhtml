@@ -1,20 +1,19 @@
 <ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
     xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui"
     xmlns:o="http://omnifaces.org/ui">
-    
-    <ui:define name="titulo">#{cadastroFabricanteBean.editando ? 'Edição fabricante' : 'Novo fabricante'}</ui:define>
+
+    <ui:define name="titulo">Novo fabricante</ui:define>
     
     <ui:define name="corpo">
     	<f:metadata>
 			<o:viewParam name="fabricante" value="#{cadastroFabricanteBean.fabricante}" />
-			<f:viewAction action="#{cadastroFabricanteBean.inicializar}"/>
 		</f:metadata>
     
-    	<h1>#{cadastroFabricanteBean.editando ? 'Edição fabricante' : 'Novo fabricante'}</h1>
+    	<h1>Novo fabricante</h1>
     	
     	<h:form id="frmCadastro">
     		<p:messages id="messages" autoUpdate="true" closable="true" />
@@ -24,7 +23,7 @@
 	    			<p:commandButton value="Salvar" id="botaoSalvar" action="#{cadastroFabricanteBean.salvar}" update="frmCadastro"/>
 	    		</p:toolbarGroup>
 	    		<p:toolbarGroup align="right">
-					<p:button value="Pesquisa" outcome="/fabricante/PesquisaFabricantes"/>
+					<p:button value="Pesquisa" />
 				</p:toolbarGroup>
 	    	</p:toolbar>
 	    	

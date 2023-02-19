@@ -2,60 +2,52 @@ package com.algaworks.curso.jpa2.controller;
 
 import java.io.Serializable;
 
-import javax.faces.view.ViewScoped;
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.algaworks.curso.jpa2.modelo.Fabricante;
 import com.algaworks.curso.jpa2.service.CadastroFabricanteService;
 import com.algaworks.curso.jpa2.service.NegocioException;
-import com.algaworks.curso.jpa2.util.jsf.FacesMessages;
+import com.algaworks.curso.jpa2.util.jsf.FacesUtil;
 
 @Named
 @ViewScoped
 public class CadastroFabricanteBean implements Serializable {
-
-	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private CadastroFabricanteService cadastroFabricanteService;
 	
 	private Fabricante fabricante;
 	
-	@Inject
-	private FacesMessages facesMessages;
-	
-	public void inicializar() {
-		if (this.fabricante == null) {
-			limpar();
-		}
-	}
-	
 	public void salvar() {
 		try {
-			cadastroFabricanteService.salvar(fabricante);
-			facesMessages.info("Fabricante salvo com sucesso!");
+			this.cadastroFabricanteService.salvar(fabricante);
+			FacesUtil.addSuccessMessage("Fabricante salvo com sucesso!");
 			
-			limpar();
+			this.limpar();
 		} catch (NegocioException e) {
-			facesMessages.error(e.getMessage());
+			FacesUtil.addErrorMessage(e.getMessage());
 		}
 	}
 	
+	@PostConstruct
+	public void init() {
+		this.limpar();
+	}
+	
+	public void limpar() {
+		this.fabricante = new Fabricante();
+	}
+
 	public Fabricante getFabricante() {
 		return fabricante;
 	}
-
 	public void setFabricante(Fabricante fabricante) {
 		this.fabricante = fabricante;
 	}
 	
-	public boolean isEditando() {
-		return this.fabricante.getCodigo() != null;
-	}
 	
-	private void limpar() {
-		this.fabricante = new Fabricante();
-	}
 	
 }

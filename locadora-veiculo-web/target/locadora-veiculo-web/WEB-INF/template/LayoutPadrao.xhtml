@@ -21,19 +21,19 @@
 				<h:outputText value=""/>
 			</f:facet>
 		</p:ajaxStatus>
-	
+
 		<header>
 			<div style="float: left">
 				<h:link outcome="/Home">
 					<h:graphicImage library="imagens" name="logo-algaworks.png" />
 				</h:link>
 			</div>
-			
+
 			<div style="float: right; margin-right: 110px">
 				<h:form style="display: inline-block">
 					<p:menubar styleClass="menu-sistema">
 						<p:submenu label="Cadastros">
-							<p:menuitem value="Fabricante" />
+							<p:menuitem value="Fabricante" outcome="/fabricante/PesquisaFabricantes.xhtml"/>
 							<p:menuitem value="Modelo Carro"  />
 							<p:menuitem value="Acessório" />
 							<p:menuitem value="Carro" />
@@ -50,13 +50,13 @@
 			</div>
 			<div style="clear: both"></div>
 		</header>
-		
+
 		<div id="conteudo">
 			<ui:insert name="corpo"/>
 		</div>
-	
+
 		<p:separator style="margin-top: 20px"/>
-	
+
 		<footer>
 			Curso Online de Persistência de Dados com JPA 2 e Hibernate -
 			<a href="http://bit.ly/VJTAnC" target="_blank">www.algaworks.com</a>

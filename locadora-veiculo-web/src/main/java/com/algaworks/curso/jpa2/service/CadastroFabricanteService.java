@@ -20,8 +20,7 @@ public class CadastroFabricanteService implements Serializable {
 		if (StringUtils.isBlank(fabricante.getNome())) {
 			throw new NegocioException("O nome do fabricante é obrigatório");
 		}
-		
 		this.fabricanteDAO.salvar(fabricante);
 	}
-	
+
 }

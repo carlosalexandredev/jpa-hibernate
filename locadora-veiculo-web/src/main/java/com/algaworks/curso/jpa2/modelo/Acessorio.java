@@ -6,15 +6,13 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "MCAR")
-public class ModeloCarro {
+@Table(name = "ACR")
+public class Acessorio {
     @Id
-    @Column(name = "ID_MCAR")
+    @Column(name = "ID_ACR")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
-    @Column(name = "DESCRICAO_MCAR")
+
+    @Column(name = "DESCRICACAO_ARC")
     private String descricao;
-    @ManyToOne
-    @JoinColumn(name = "ID_FBC")
-    private Fabricante fabricante;
 }

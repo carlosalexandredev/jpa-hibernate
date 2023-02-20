@@ -14,7 +14,6 @@ import java.util.Objects;
 
 @Slf4j
 public class ModeloCarroDAO implements Serializable {
-
 	private static final String BUSCA_TODOS = "FROM ModeloCarro";
 	@Inject
 	private EntityManager em;
@@ -38,10 +37,10 @@ public class ModeloCarroDAO implements Serializable {
 		ModeloCarro modeloCarro = em.find(ModeloCarro.class, codigo);
 
 		if(Objects.nonNull(modeloCarro)) {
-			log.info(String.format("Agenda consultada com sucesso: %s", modeloCarro.toString()));
+			log.info(String.format("Modelo de carro consultado com sucesso: %s", modeloCarro.toString()));
 			return modeloCarro;
 		}else {
-			throw new NoSuchElementException(String.format("A agenda com o ID %s não foi encontrada", codigo));
+			throw new NoSuchElementException(String.format("O modelo de carro com o ID %s não foi encontrada", codigo));
 		}
 	}
 }

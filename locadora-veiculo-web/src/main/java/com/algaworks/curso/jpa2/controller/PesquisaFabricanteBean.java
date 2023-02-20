@@ -4,6 +4,7 @@ import com.algaworks.curso.jpa2.dao.FabricanteDAO;
 import com.algaworks.curso.jpa2.modelo.Fabricante;
 import com.algaworks.curso.jpa2.service.NegocioException;
 import com.algaworks.curso.jpa2.util.jsf.FacesUtil;
+import lombok.Data;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ViewScoped;
@@ -12,7 +13,7 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
 @Named
 @ViewScoped
 public class PesquisaFabricanteBean implements Serializable {
@@ -26,10 +27,6 @@ public class PesquisaFabricanteBean implements Serializable {
 
 	private Fabricante fabricanteSelecionado;
 
-	public List<Fabricante> getFabricantes() {
-		return fabricantes;
-	}
-
 	public void excluir() {
 		try {
 			fabricanteDAO.excluir(fabricanteSelecionado);
@@ -38,13 +35,6 @@ public class PesquisaFabricanteBean implements Serializable {
 		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
-	}
-
-	public Fabricante getFabricanteSelecionado() {
-		return fabricanteSelecionado;
-	}
-	public void setFabricanteSelecionado(Fabricante fabricanteSelecionado) {
-		this.fabricanteSelecionado = fabricanteSelecionado;
 	}
 
 	@PostConstruct

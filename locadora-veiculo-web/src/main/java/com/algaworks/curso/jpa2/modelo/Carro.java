@@ -24,7 +24,10 @@ public class Carro {
     private BigDecimal valorDiaria;
 
     @ManyToMany
-    @JoinColumn(name = "ACR_CAR")
+    @JoinTable(
+            name = "CAR_ACR",
+            joinColumns = @JoinColumn(name = "ID_CAR"),
+            inverseJoinColumns = @JoinColumn(name = "ID_ACR"))
     private List<Acessorio> acessorios;
 
     @ManyToOne

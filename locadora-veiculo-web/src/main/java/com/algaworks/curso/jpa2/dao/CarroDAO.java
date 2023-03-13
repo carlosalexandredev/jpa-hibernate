@@ -38,4 +38,11 @@ public class CarroDAO implements Serializable {
         }
     }
 
+    @SuppressWarnings("JpaQueryApiInspection")
+    public Carro buscarCarroComAcessorios(Long codigo) {
+        return (Carro) manager.createQuery("select c from Carro c JOIN c.acessorios a where c.codigo = ?")
+                .setParameter(1, codigo)
+                .getSingleResult();
+    }
+
 }

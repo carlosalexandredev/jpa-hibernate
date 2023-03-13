@@ -26,7 +26,7 @@ public class Carro {
     @JoinColumn(name = "ID_MCAR")
     private ModeloCarro modelo;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "CAR_ACR",
             joinColumns = @JoinColumn(name = "ID_CAR"),

@@ -22,6 +22,9 @@ public class Carro {
     private String cor;
     @Column(name = "DIARIA_CAR")
     private BigDecimal valorDiaria;
+    @ManyToOne
+    @JoinColumn(name = "ID_MCAR")
+    private ModeloCarro modelo;
 
     @ManyToMany
     @JoinTable(
@@ -30,7 +33,7 @@ public class Carro {
             inverseJoinColumns = @JoinColumn(name = "ID_ACR"))
     private List<Acessorio> acessorios;
 
-    @ManyToOne
-    @JoinColumn(name = "ID_MCAR")
-    private ModeloCarro modelo;
+    @OneToMany(mappedBy = "carro")
+    private List<Aluguel> alugueis;
+
 }
